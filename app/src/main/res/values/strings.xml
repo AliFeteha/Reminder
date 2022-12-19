@@ -33,6 +33,14 @@
     <string name="welcome">Welcome</string>
     <string name="err_enter_title">Please enter title</string>
     <string name="err_select_location">Please select location</string>
+    <string name="permissions_request">Please grant us  permissions</string>
+    <string name="permissions_request_settings">Go to settings to manually grant us denied permissions</string>
+
+    <!--    Geofence Status Strings-->
+    <string name="geofences_added">Clue Geofence added.</string>
+    <string name="geofences_removed">Geofences removed.</string>
+    <string name="geofence_over">You have found the treasure! Congratulations!</string>
+
 
     <!-- Error strings -->
     <string name="geofence_unknown_error">Unknown error: the Geofence service is not available now.</string>

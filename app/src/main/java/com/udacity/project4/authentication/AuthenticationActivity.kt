@@ -9,7 +9,10 @@ import com.udacity.project4.R
  * signed in users to the RemindersActivity.
  */
 class AuthenticationActivity : AppCompatActivity() {
-
+    companion object{
+        const val Tag = "Login Fragment"
+        const val SIGN_IN_RESULT_CODE = 1001
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)

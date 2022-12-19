@@ -3,6 +3,7 @@ package com.udacity.project4.authentication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.firebase.ui.auth.AuthUI
 import com.udacity.project4.R
 import com.udacity.project4.databinding.ActivityAuthenticationBinding
 
@@ -26,7 +27,10 @@ class AuthenticationActivity : AppCompatActivity() {
         }
     }
     private fun launchSignInFlow() {
-        TODO("Not yet implemented")
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build()
+        )
+
     }
 
 //          TODO: If the user was authenticated, send him to RemindersActivity

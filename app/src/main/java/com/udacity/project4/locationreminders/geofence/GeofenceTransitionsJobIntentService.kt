@@ -13,10 +13,12 @@ import com.udacity.project4.locationreminders.data.local.RemindersLocalRepositor
 import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
 import com.udacity.project4.utils.sendNotification
 import kotlinx.coroutines.*
+import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import kotlin.coroutines.CoroutineContext
 
 class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
+    private lateinit var repository: ReminderDataSource
     private val TAG = "GeofenceService"
     private var coroutineJob: Job = Job()
     override val coroutineContext: CoroutineContext
@@ -58,8 +60,9 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
                 return
             }
         }
+        repository = get()
         //Get the local repository instance
-        val reminderLocalRepository: ReminderDataSource by inject()
+        val remindersLocalRepository: RemindersLocalRepository by inject()
 //        Interaction to the repository has to be through a coroutine scope
         CoroutineScope(coroutineContext).launch(SupervisorJob()) {
             //get the reminder with the request id

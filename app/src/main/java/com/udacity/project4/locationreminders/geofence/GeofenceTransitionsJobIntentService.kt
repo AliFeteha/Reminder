@@ -41,7 +41,7 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
         val geofenceList: List<Geofence> =
             geofencingEvent.triggeringGeofences
-
+        sendNotification(geofenceList)
     }
 
     //TODO: get the request id of the current geofence

@@ -30,6 +30,7 @@ import com.udacity.project4.utils.setDisplayHomeAsUpEnabled
 import org.koin.android.ext.android.inject
 
 class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
+    private val marker:Marker? = null
     private val TAG = SelectLocationFragment::class.java.simpleName
     //Use Koin to get the view model of the SaveReminder
     override val _viewModel: SaveReminderViewModel by inject()

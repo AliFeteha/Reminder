@@ -31,6 +31,7 @@ import org.koin.android.ext.android.inject
 import java.util.*
 
 class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
+    private val REQUEST_LOCATION_PERMISSION = 1
     private var marker : Marker? = null
     private val TAG = SelectLocationFragment::class.java.simpleName
     //Use Koin to get the view model of the SaveReminder

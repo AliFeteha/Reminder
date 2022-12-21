@@ -98,6 +98,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         setMapStyle(map)
+        setMapLongClick(map)
     }
     private fun setMapStyle(map: GoogleMap) {
         try {

@@ -141,6 +141,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
     }
     private fun setPoiClick(map: GoogleMap) {
         map.setOnPoiClickListener { poi ->
+            map.clear()
             marker = map.addMarker(
                 MarkerOptions()
                     .position(poi.latLng)

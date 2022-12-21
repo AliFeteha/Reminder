@@ -135,6 +135,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
                     .snippet(snippet)
 
             )
+            marker?.showInfoWindow()
         }
     }
 

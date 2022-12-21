@@ -94,7 +94,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        TODO("Not yet implemented")
+        map = googleMap
     }
 
 

@@ -145,6 +145,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
                     .position(poi.latLng)
                     .title(poi.name)
             )
+            marker?.showInfoWindow()
         }
     }
 

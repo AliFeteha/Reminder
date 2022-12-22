@@ -158,7 +158,7 @@ class SaveReminderFragment : BaseFragment() {
         PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
     private fun addGeofence(){
-
+        val currentGeofenceData = reminder
     }
 
     override fun onDestroy() {

@@ -1,6 +1,7 @@
 package com.udacity.project4.locationreminders.savereminder
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.PendingIntent
 import android.content.Intent
@@ -155,6 +156,7 @@ class SaveReminderFragment : BaseFragment() {
         intent.action = ACTION_GEOFENCE_EVENT
         PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
+    @SuppressLint("MissingPermission")
     private fun addGeofence(){
         val currentGeofenceData = reminder
         val geofence = Geofence.Builder()
@@ -170,6 +172,12 @@ class SaveReminderFragment : BaseFragment() {
             .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
             .addGeofence(geofence)
             .build()
+        addOnCompleteListener {
+            geofencingClient.addGeofences(geofencingRequest, geofencePendingIntent)?.run {
+
+            }
+        }
+
     }
 
 

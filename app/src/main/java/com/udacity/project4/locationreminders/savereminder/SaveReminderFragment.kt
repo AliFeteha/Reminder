@@ -2,6 +2,7 @@ package com.udacity.project4.locationreminders.savereminder
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -117,6 +118,8 @@ class SaveReminderFragment : BaseFragment() {
                         requireActivity(),
                         REQUEST_TURN_DEVICE_LOCATION_ON
                     )
+                }catch (sendEx: IntentSender.SendIntentException) {
+                    Log.d(TAG, "Error getting location settings resolution: " + sendEx.message)
                 }
             }
 

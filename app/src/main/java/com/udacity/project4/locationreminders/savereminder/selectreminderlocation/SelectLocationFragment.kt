@@ -104,6 +104,7 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
         setMapStyle(map)
         setMapLongClick(map)
         setPoiClick(map)
+        enableMyLocation()
     }
     private fun setMapStyle(map: GoogleMap) {
         try {

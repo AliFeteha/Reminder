@@ -14,10 +14,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.GeofencingClient
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
@@ -42,6 +39,7 @@ class SaveReminderFragment : BaseFragment() {
     private lateinit var reminder :ReminderDataItem
     private lateinit var binding: FragmentSaveReminderBinding
     private lateinit var geofencingClient: GeofencingClient
+    private val GEOFENCE_RADIUS_IN_METERS = 50f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -159,7 +157,17 @@ class SaveReminderFragment : BaseFragment() {
     }
     private fun addGeofence(){
         val currentGeofenceData = reminder
+        val geofence = Geofence.Builder()
+            .setRequestId(currentGeofenceData.id)
+            .setCircularRegion(currentGeofenceData.latitude!!,
+                currentGeofenceData.longitude!!,
+                GEOFENCE_RADIUS_IN_METERS
+            )
+            .setExpirationDuration(Geofence.NEVER_EXPIRE)
+            .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+            .build()
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

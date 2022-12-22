@@ -97,7 +97,10 @@ class SaveReminderFragment : BaseFragment() {
             resultCode
         )
     }
+    private fun checkDeviceLocationSettingsAndStartGeofence(resolve:Boolean = true) {
 
+    }
+    }
     override fun onDestroy() {
         super.onDestroy()
         //make sure to clear the view model after destroy, as it's a single view model.

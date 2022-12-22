@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.api.ResolvableApiException
@@ -174,6 +175,11 @@ class SaveReminderFragment : BaseFragment() {
             .build()
         addOnCompleteListener {
             geofencingClient.addGeofences(geofencingRequest, geofencePendingIntent)?.run {
+                addOnSuccessListener {
+                    Toast.makeText(context,"geofence added", Toast.LENGTH_LONG).show()
+                    Log.e("Add Geofence", geofence.requestId)
+                    _viewModel.validateAndSaveReminder(reminder)
+                }
 
             }
         }

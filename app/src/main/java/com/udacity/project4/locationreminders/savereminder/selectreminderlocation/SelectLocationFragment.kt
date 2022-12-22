@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -61,8 +62,15 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
 //        Done: put a marker to location that the user selected
 
 
-//        TODO: call this function after the user confirms on the selected location
-        onLocationSelected()
+//        Done: call this function after the user confirms on the selected location
+        binding.saveLocation.setOnClickListener{
+            if(marker!=null){
+                onLocationSelected()
+            }else{
+                Toast.makeText(context,"please select a location", Toast.LENGTH_LONG).show()
+            }
+        }
+
 
         return binding.root
     }

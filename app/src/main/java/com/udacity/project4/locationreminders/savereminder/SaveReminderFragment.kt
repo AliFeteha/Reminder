@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
@@ -37,14 +38,14 @@ class SaveReminderFragment : BaseFragment() {
             android.os.Build.VERSION_CODES.Q
     override val _viewModel: SaveReminderViewModel by inject()
     private lateinit var binding: FragmentSaveReminderBinding
-
+    private lateinit var geofencingClient: GeofencingClient
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_save_reminder, container, false)
-
+        geofencingClient = LocationServices.getGeofencingClient(requireActivity())
         setDisplayHomeAsUpEnabled(true)
 
         binding.viewModel = _viewModel
@@ -158,4 +159,5 @@ class SaveReminderFragment : BaseFragment() {
         //make sure to clear the view model after destroy, as it's a single view model.
         _viewModel.onClear()
     }
+
 }

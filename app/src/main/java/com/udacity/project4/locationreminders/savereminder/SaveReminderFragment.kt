@@ -185,11 +185,7 @@ class SaveReminderFragment : BaseFragment() {
             }
 
         }
-
-        }
-
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

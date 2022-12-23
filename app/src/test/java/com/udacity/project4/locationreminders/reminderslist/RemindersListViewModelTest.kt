@@ -48,5 +48,9 @@ class RemindersListViewModelTest {
         viewModel.loadReminders()
         assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
     }
+    @Test
+    fun returnError(){
+    }
+
 
 }

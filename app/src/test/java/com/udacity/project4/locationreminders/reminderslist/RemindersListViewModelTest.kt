@@ -52,6 +52,7 @@ class RemindersListViewModelTest {
     fun returnError(){
         remindersRepository = FakeDataSource(null)
         viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
+        viewModel.loadReminders()
     }
 
 

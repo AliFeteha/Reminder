@@ -1,6 +1,7 @@
 package com.udacity.project4.locationreminders.savereminder
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
@@ -34,6 +35,7 @@ class SaveReminderViewModelTest {
         val reminder = ReminderDTO("alex","restaurant","mac",2.1,3.1)
         val reminderList = mutableListOf(reminder)
         remindersRepository = FakeDataSource(reminderList)
+        viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
     }
 
 

@@ -50,6 +50,7 @@ class RemindersListViewModelTest {
     }
     @Test
     fun returnError(){
+        remindersRepository = FakeDataSource(null)
     }
 
 

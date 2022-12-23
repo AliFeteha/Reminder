@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
+import com.udacity.project4.locationreminders.data.dto.ReminderDTO
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Rule
@@ -26,6 +27,8 @@ class RemindersListViewModelTest {
     }
     @Test
     fun checkOfReminderListNotEmpty(){
+        val reminder1 = ReminderDTO("alex","restaurant","mac",2.1,3.1)
+        val reminder2 = ReminderDTO("alex","restaurant","KFC",2.5,3.5)
 
     }
 }

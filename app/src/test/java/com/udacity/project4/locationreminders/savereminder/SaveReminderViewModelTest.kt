@@ -32,6 +32,8 @@ class SaveReminderViewModelTest {
     fun loading(){
         mainCoroutineRule.pauseDispatcher()
         val reminder = ReminderDTO("alex","restaurant","mac",2.1,3.1)
+        val reminderList = mutableListOf(reminder)
+
     }
 
 

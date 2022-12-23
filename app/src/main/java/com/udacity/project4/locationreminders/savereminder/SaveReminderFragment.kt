@@ -30,6 +30,8 @@ import org.koin.android.ext.android.inject
 class SaveReminderFragment : BaseFragment() {
     //Get the view model this time as a single to be shared with the another fragment
     private val TAG = "SaveReminderFragment"
+    private val LOCATION_PERMISSION_INDEX = 0
+    private val BACKGROUND_LOCATION_PERMISSION_INDEX =1
     private val REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE = 33
     private val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
     private val REQUEST_TURN_DEVICE_LOCATION_ON = 29
@@ -191,6 +193,12 @@ class SaveReminderFragment : BaseFragment() {
         grantResults: IntArray
     ) {
         Log.d(TAG, "onRequestPermissionResult")
+        if (grantResults.isEmpty() ||
+            grantResults[LOCATION_PERMISSION_INDEX] == PackageManager.PERMISSION_DENIED ||
+            (requestCode == REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE &&
+                    grantResults[BACKGROUND_LOCATION_PERMISSION_INDEX] ==
+                    PackageManager.PERMISSION_DENIED))
+        {
 
     }
 

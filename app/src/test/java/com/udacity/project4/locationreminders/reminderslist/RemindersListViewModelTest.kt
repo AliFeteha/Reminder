@@ -3,10 +3,14 @@ package com.udacity.project4.locationreminders.reminderslist
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.Assert.assertThat
 import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
 import com.udacity.project4.locationreminders.data.dto.ReminderDTO
+import com.udacity.project4.locationreminders.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.hamcrest.CoreMatchers
+import org.hamcrest.core.IsNot
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -34,5 +38,6 @@ class RemindersListViewModelTest {
         remindersRepository = FakeDataSource(reminderList)
         viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
         viewModel.loadReminders()
+        assertThat( viewModel.remindersList.getOrAwaitValue(), (IsNot.not(emptyList())))
     }
 }

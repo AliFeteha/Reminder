@@ -6,10 +6,15 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
 import com.udacity.project4.locationreminders.data.dto.ReminderDTO
+import com.udacity.project4.locationreminders.getOrAwaitValue
+import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
 import com.udacity.project4.locationreminders.reminderslist.RemindersListViewModel
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.hamcrest.CoreMatchers
 import org.junit.After
+import org.junit.Assert
+import org.junit.Assert.assertThat
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,11 +37,11 @@ class SaveReminderViewModelTest {
     @Test
     fun loading(){
         mainCoroutineRule.pauseDispatcher()
-        val reminder = ReminderDTO("alex","restaurant","mac",2.1,3.1)
-        val reminderList = mutableListOf(reminder)
-        remindersRepository = FakeDataSource(reminderList)
+        val reminder = ReminderDataItem("alex","restaurant","mac",2.1,3.1)
+        remindersRepository = FakeDataSource()
         viewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
-
+        viewModel.validateAndSaveReminder(reminder)
+        assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
     }
 
 

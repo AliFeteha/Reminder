@@ -40,4 +40,9 @@ class RemindersListViewModelTest {
         viewModel.loadReminders()
         assertThat( viewModel.remindersList.getOrAwaitValue(), (IsNot.not(emptyList())))
     }
+    @Test
+    fun loadRemindersTest(){
+
+    }
+
 }

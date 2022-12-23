@@ -46,6 +46,8 @@ class SaveReminderViewModelTest {
     @Test
     fun returnError(){
         mainCoroutineRule.pauseDispatcher()
+        val reminder = ReminderDataItem("","restaurant","mac",2.1,3.1)
+
     }
 
 }

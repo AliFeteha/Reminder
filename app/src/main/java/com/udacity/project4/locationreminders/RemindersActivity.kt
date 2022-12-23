@@ -17,11 +17,10 @@ import kotlinx.android.synthetic.main.activity_reminders.*
  * The RemindersActivity that holds the reminders fragments
  */
 class RemindersActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAuthenticationBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_reminders)
-
+        setContentView(R.layout.activity_reminders)
 
     }
 

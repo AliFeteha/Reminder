@@ -33,6 +33,6 @@ class RemindersListViewModelTest {
         val reminderList = mutableListOf(reminder1,reminder2)
         remindersRepository = FakeDataSource(reminderList)
         viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
-
+        viewModel.loadReminders()
     }
 }

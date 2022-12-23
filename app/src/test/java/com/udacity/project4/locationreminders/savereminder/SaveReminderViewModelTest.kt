@@ -9,6 +9,7 @@ import com.udacity.project4.locationreminders.reminderslist.RemindersListViewMod
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
 
@@ -25,6 +26,10 @@ class SaveReminderViewModelTest {
     @After
     fun tearDown() {
         stopKoin()
+    }
+    @Test
+    fun loading(){
+        mainCoroutineRule.pauseDispatcher()
     }
 
 

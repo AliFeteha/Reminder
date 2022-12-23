@@ -30,6 +30,6 @@ class RemindersListViewModelTest {
         val reminder1 = ReminderDTO("alex","restaurant","mac",2.1,3.1)
         val reminder2 = ReminderDTO("alex","restaurant","KFC",2.5,3.5)
         val reminderList = mutableListOf(reminder1,reminder2)
-
+        remindersRepository = FakeDataSource(reminderList)
     }
 }

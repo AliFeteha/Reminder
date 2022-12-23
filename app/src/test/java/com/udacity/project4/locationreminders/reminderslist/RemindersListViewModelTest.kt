@@ -7,6 +7,7 @@ import com.udacity.project4.locationreminders.data.FakeDataSource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
 
@@ -23,6 +24,8 @@ class RemindersListViewModelTest {
     fun tearDown() {
         stopKoin()
     }
+    @Test
+    fun checkOfReminderListNotEmpty(){
 
-
+    }
 }

@@ -42,6 +42,7 @@ class RemindersListViewModelTest {
     }
     @Test
     fun loadRemindersTest(){
+        mainCoroutineRule.pauseDispatcher()
 
     }
 

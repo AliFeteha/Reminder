@@ -214,6 +214,8 @@ class SaveReminderFragment : BaseFragment() {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     })
                 }.show()
+        }else {
+            checkDeviceLocationSettingsAndStartGeofence()
         }
 
     }

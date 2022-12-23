@@ -7,8 +7,10 @@ import com.udacity.project4.locationreminders.data.FakeDataSource
 import com.udacity.project4.locationreminders.reminderslist.RemindersListViewModel
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.After
 import org.junit.Rule
 import org.junit.runner.RunWith
+import org.koin.core.context.stopKoin
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
@@ -20,6 +22,10 @@ class SaveReminderViewModelTest {
     var mainCoroutineRule = MainCoroutineRule()
     private lateinit var remindersRepository: FakeDataSource
     private lateinit var viewModel: RemindersListViewModel
+    @After
+    fun tearDown() {
+        stopKoin()
+    }
 
 
 }

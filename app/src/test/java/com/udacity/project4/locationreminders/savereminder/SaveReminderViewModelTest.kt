@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
+import com.udacity.project4.locationreminders.reminderslist.RemindersListViewModel
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
@@ -18,6 +19,7 @@ class SaveReminderViewModelTest {
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
     private lateinit var remindersRepository: FakeDataSource
+    private lateinit var viewModel: RemindersListViewModel
 
 
 }

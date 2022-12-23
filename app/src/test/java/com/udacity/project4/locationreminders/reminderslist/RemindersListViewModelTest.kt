@@ -16,6 +16,7 @@ class RemindersListViewModelTest {
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
     private lateinit var remindersRepository: FakeDataSource
+    private lateinit var viewModel: RemindersListViewModel
 
 
 }

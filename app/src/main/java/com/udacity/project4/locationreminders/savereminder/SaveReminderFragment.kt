@@ -7,7 +7,9 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +20,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
+import com.udacity.project4.BuildConfig
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
@@ -199,6 +202,19 @@ class SaveReminderFragment : BaseFragment() {
                     grantResults[BACKGROUND_LOCATION_PERMISSION_INDEX] ==
                     PackageManager.PERMISSION_DENIED))
         {
+            Snackbar.make(
+                binding.root,
+                R.string.permission_denied_explanation,
+                Snackbar.LENGTH_INDEFINITE
+            )
+                .setAction(R.string.settings) {
+                    startActivity(Intent().apply {
+                        action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                        data = Uri.fromParts("package", BuildConfig.APPLICATION_ID, null)
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    })
+                }.show()
+        }
 
     }
 

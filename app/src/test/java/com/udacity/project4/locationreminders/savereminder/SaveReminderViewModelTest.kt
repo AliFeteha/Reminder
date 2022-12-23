@@ -24,7 +24,7 @@ class SaveReminderViewModelTest {
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
     private lateinit var remindersRepository: FakeDataSource
-    private lateinit var viewModel: RemindersListViewModel
+    private lateinit var viewModel: SaveReminderViewModel
     @After
     fun tearDown() {
         stopKoin()
@@ -35,7 +35,8 @@ class SaveReminderViewModelTest {
         val reminder = ReminderDTO("alex","restaurant","mac",2.1,3.1)
         val reminderList = mutableListOf(reminder)
         remindersRepository = FakeDataSource(reminderList)
-        viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
+        viewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
+
     }
 
 

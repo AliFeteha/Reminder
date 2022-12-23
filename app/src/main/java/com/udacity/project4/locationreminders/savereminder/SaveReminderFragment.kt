@@ -46,7 +46,6 @@ class SaveReminderFragment : BaseFragment() {
     private lateinit var binding: FragmentSaveReminderBinding
     private lateinit var geofencingClient: GeofencingClient
     private val GEOFENCE_RADIUS_IN_METERS = 50f
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -77,9 +76,17 @@ class SaveReminderFragment : BaseFragment() {
             val latitude = _viewModel.latitude.value
             val longitude = _viewModel.longitude.value
             reminder = ReminderDataItem(title,description,location,latitude,longitude)
-//            TODO: use the user entered reminder details to:
+            if (_viewModel.validateEnteredData(reminder)){
+                if (foregroundAndBackgroundLocationPermissionApproved()){
+                    checkDeviceLocationSettingsAndStartGeofence()
+                } else {
+                    requestForegroundAndBackgroundLocationPermissions()
+                }
+            }
+//            Done: use the user entered reminder details to:
 //             1) add a geofencing request
 //             2) save the reminder to the local db
+
         }
     }
     @TargetApi(29)

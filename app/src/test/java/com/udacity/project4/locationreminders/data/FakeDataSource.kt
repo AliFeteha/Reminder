@@ -23,7 +23,7 @@ class FakeDataSource(var remindersList: MutableList<ReminderDTO>? = mutableListO
     }
 
     override suspend fun deleteAllReminders() {
-        TODO("delete all the reminders")
+        remindersList?.clear()
     }
 
 

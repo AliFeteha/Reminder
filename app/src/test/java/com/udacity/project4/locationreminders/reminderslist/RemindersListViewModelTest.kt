@@ -46,6 +46,7 @@ class RemindersListViewModelTest {
         remindersRepository = FakeDataSource(mutableListOf())
         viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
         viewModel.loadReminders()
+        assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
     }
 
 }

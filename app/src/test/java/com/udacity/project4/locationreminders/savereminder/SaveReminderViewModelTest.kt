@@ -49,6 +49,8 @@ class SaveReminderViewModelTest {
         val reminder = ReminderDataItem("","restaurant","mac",2.1,3.1)
         remindersRepository = FakeDataSource()
         viewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
+        viewModel.validateAndSaveReminder(reminder)
+
     }
 
 }

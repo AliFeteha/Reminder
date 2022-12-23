@@ -43,7 +43,7 @@ class RemindersListViewModelTest {
     @Test
     fun loadRemindersTest(){
         mainCoroutineRule.pauseDispatcher()
-
+        remindersRepository = FakeDataSource(mutableListOf())
     }
 
 }

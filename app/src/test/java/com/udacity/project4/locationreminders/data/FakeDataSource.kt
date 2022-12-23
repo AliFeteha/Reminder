@@ -9,7 +9,8 @@ class FakeDataSource(var remindersList: MutableList<ReminderDTO>? = mutableListO
 //    TODO: Create a fake data source to act as a double to the real data source
 
     override suspend fun getReminders(): Result<List<ReminderDTO>> {
-        TODO("Return the reminders")
+        remindersList?.let { return Result.Success(it) }
+        return Result.Error("error to get Reminders")
     }
 
     override suspend fun saveReminder(reminder: ReminderDTO) {

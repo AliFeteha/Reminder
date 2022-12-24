@@ -16,6 +16,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.test.AutoCloseKoinTest
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 
@@ -23,7 +24,7 @@ import org.mockito.Mockito.verify
 @ExperimentalCoroutinesApi
 //UI Testing
 @MediumTest
-class ReminderListFragmentTest {
+class ReminderListFragmentTest: AutoCloseKoinTest() {
 
 //    TODO: test the navigation of the fragments.
 //    TODO: test the displayed data on the UI.

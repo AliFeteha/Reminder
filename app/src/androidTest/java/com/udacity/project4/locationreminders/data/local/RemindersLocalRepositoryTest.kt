@@ -47,6 +47,10 @@ class RemindersLocalRepositoryTest {
             )
 
     }
+    @After
+    fun cleanUp() {
+        database.close()
+    }
 
 
 }

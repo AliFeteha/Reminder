@@ -25,6 +25,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
@@ -54,7 +55,9 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
             }
             single { RemindersLocalRepository(get()) as ReminderDataSource }
             single { LocalDB.createRemindersDao(appContext) }
+
         }
+        startKoin { modules(listOf(myModule)) }
     }
 
 //    TODO: test the navigation of the fragments.

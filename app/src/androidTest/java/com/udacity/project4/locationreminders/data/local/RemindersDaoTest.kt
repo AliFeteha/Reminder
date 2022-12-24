@@ -44,6 +44,7 @@ class RemindersDaoTest {
 
     @Test
     fun getRemindersTest() = runBlockingTest {
+        val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
 
     }
 

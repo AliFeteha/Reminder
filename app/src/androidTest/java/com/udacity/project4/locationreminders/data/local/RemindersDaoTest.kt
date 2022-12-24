@@ -67,6 +67,7 @@ class RemindersDaoTest {
         database.reminderDao().saveReminder(reminder)
         database.reminderDao().deleteAllReminders()
         val reminderList = database.reminderDao().getReminders()
+        assertThat(reminderList.isEmpty(), `is`(true))
 
     }
 

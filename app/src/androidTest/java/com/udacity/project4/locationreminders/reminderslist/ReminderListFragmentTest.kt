@@ -19,6 +19,7 @@ import com.udacity.project4.locationreminders.data.local.LocalDB
 import com.udacity.project4.locationreminders.data.local.RemindersLocalRepository
 import com.udacity.project4.locationreminders.savereminder.SaveReminderViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -60,6 +61,9 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
         }
         startKoin { modules(listOf(myModule)) }
         repository = get()
+        runBlocking {
+            repository.deleteAllReminders()
+        }
     }
 
 //    TODO: test the navigation of the fragments.

@@ -25,7 +25,7 @@ import org.junit.runner.RunWith
 @MediumTest
 class RemindersLocalRepositoryTest {
 
-//    TODO: Add testing implementation to the RemindersLocalRepository.kt
+//    Done: Add testing implementation to the RemindersLocalRepository.kt
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 

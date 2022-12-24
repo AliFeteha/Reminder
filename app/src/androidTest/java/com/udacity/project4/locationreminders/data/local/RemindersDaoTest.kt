@@ -41,4 +41,11 @@ class RemindersDaoTest {
     }
     @After
     fun closeDb() = database.close()
+
+    @Test
+    fun getRemindersTest() = runBlockingTest {
+
+    }
+
+
 }

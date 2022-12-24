@@ -76,8 +76,9 @@ class RemindersLocalRepositoryTest {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
         remindersLocalRepository.saveReminder(reminder)
         remindersLocalRepository.deleteAllReminders()
-        val remindersList = remindersLocalRepository.getReminder(reminder.id) as? Result.Success
-
+        val remindersList = remindersLocalRepository.getReminder(reminder.id)
+        remindersList as Result.Error
+        assertThat(remindersList.message, `is`("Reminder not found!"))
     }
 
 

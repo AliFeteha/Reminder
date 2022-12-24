@@ -58,6 +58,10 @@ class RemindersLocalRepositoryTest {
         assertThat(remindersList is Result.Success, `is`(true))
         assertThat(remindersList?.data, not(emptyList()))
     }
+    @Test
+    fun successfulGetReminder() = runBlocking {
+
+    }
 
 
 

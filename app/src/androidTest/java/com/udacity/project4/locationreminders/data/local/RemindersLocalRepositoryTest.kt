@@ -87,6 +87,7 @@ class RemindersLocalRepositoryTest {
         remindersLocalRepository.saveReminder(reminder)
         remindersLocalRepository.deleteAllReminders()
         val remindersList = remindersLocalRepository.getReminders()
+        remindersList as Result.Success
     }
 
 

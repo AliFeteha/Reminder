@@ -74,6 +74,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     scenario.onFragment {
         Navigation.setViewNavController(it.view!!, navController)
     }
+    onView(withId(R.id.addReminderFAB)).perform(click())
     }
 //    TODO: test the displayed data on the UI.
 //    TODO: add testing for the error messages.

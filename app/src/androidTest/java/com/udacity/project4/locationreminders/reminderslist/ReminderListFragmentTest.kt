@@ -14,6 +14,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.udacity.project4.R
+import com.udacity.project4.locationreminders.data.ReminderDataSource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.*
 import org.junit.Rule
@@ -31,6 +32,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     @get:Rule
     val instantExecutor = InstantTaskExecutorRule()
     private lateinit var appContext: Application
+    private lateinit var repository: ReminderDataSource
 
 //    TODO: test the navigation of the fragments.
 //    TODO: test the displayed data on the UI.

@@ -22,6 +22,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
+import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
@@ -40,6 +41,9 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     fun setup(){
         stopKoin()
         appContext = getApplicationContext()
+        val myModule = module {
+
+        }
     }
 
 //    TODO: test the navigation of the fragments.

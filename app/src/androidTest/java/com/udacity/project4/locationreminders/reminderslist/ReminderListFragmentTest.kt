@@ -91,6 +91,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
    fun displayedDataOnUi()  = runBlockingTest{
     val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
     repository.saveReminder(reminder)
+    launchFragmentInContainer<ReminderListFragment>(Bundle(), R.style.AppTheme)
 
 }
     //    Done: add testing for the error messages.

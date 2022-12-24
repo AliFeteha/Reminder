@@ -8,8 +8,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.SmallTest;
 import com.udacity.project4.locationreminders.data.dto.ReminderDTO
 
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi;
@@ -17,8 +15,7 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.After
-import org.junit.Test
+import org.junit.*
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
@@ -47,7 +44,7 @@ class RemindersDaoTest {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
         database.reminderDao().saveReminder(reminder)
         val remindersList = database.reminderDao().getReminders()
-
+        assertThat(remindersList.isEmpty(), `is`(false))
     }
 
 

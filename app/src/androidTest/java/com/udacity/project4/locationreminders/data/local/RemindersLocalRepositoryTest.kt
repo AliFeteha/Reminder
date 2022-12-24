@@ -74,6 +74,9 @@ class RemindersLocalRepositoryTest {
     @Test
     fun errorGetReminder() = runBlocking {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
+        remindersLocalRepository.saveReminder(reminder)
+        remindersLocalRepository.deleteAllReminders()
+
     }
 
 

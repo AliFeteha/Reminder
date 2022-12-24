@@ -40,6 +40,11 @@ class RemindersLocalRepositoryTest {
         )
             .allowMainThreadQueries()
             .build()
+        remindersLocalRepository =
+            RemindersLocalRepository(
+                database.reminderDao(),
+                Dispatchers.Main
+            )
 
     }
 

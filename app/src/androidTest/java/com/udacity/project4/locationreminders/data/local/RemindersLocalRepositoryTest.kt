@@ -88,6 +88,7 @@ class RemindersLocalRepositoryTest {
         remindersLocalRepository.deleteAllReminders()
         val remindersList = remindersLocalRepository.getReminders()
         remindersList as Result.Success
+        assertThat(remindersList.data, `is` (emptyList()))
     }
 
 

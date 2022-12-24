@@ -65,6 +65,8 @@ class RemindersDaoTest {
     fun deleteRemindersTest()= runBlockingTest {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
         database.reminderDao().saveReminder(reminder)
+        database.reminderDao().deleteAllReminders()
+
     }
 
 

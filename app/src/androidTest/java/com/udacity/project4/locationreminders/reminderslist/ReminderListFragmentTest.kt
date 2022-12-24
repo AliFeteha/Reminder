@@ -1,5 +1,6 @@
 package com.udacity.project4.locationreminders.reminderslist
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
@@ -29,6 +30,7 @@ import org.mockito.Mockito.verify
 class ReminderListFragmentTest: AutoCloseKoinTest() {
     @get:Rule
     val instantExecutor = InstantTaskExecutorRule()
+    private lateinit var appContext: Application
 
 //    TODO: test the navigation of the fragments.
 //    TODO: test the displayed data on the UI.

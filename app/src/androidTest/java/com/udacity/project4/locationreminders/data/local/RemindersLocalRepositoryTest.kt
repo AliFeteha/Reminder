@@ -71,6 +71,10 @@ class RemindersLocalRepositoryTest {
         assertThat(remindersList.data.longitude, `is`(reminder.longitude))
         assertThat(remindersList.data.location, `is`(reminder.location))
     }
+    @Test
+    fun errorGetReminder() = runBlocking {
+
+    }
 
 
 

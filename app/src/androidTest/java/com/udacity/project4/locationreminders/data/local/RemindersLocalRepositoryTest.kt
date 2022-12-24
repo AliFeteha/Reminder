@@ -32,4 +32,9 @@ class RemindersLocalRepositoryTest {
     private lateinit var remindersLocalRepository: RemindersLocalRepository
     private lateinit var database: RemindersDatabase
 
+    @Before
+    fun setup() {
+    }
+
+
 }

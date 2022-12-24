@@ -92,7 +92,12 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
     repository.saveReminder(reminder)
     launchFragmentInContainer<ReminderListFragment>(Bundle(), R.style.AppTheme)
-
+    onView(withId(R.id.reminderssRecyclerView))
+        .perform(
+            RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
+                hasDescendant(withText(reminder.title))
+            )
+        )
 }
     //    Done: add testing for the error messages.
     @Test

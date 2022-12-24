@@ -62,9 +62,14 @@ class RemindersLocalRepositoryTest {
     fun successfulGetReminder() = runBlocking {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
         remindersLocalRepository.saveReminder(reminder)
-        val remindersList = remindersLocalRepository.getReminders() as? Result.Success
+        val remindersList = remindersLocalRepository.getReminder(reminder.id) as? Result.Success
         assertThat(remindersList is Result.Success, `is`(true))
         remindersList as Result.Success
+        assertThat(remindersList.data.title, `is`(reminder.title))
+        assertThat(remindersList.data.description, `is`(reminder.description))
+        assertThat(remindersList.data.latitude, `is`(reminder.latitude))
+        assertThat(remindersList.data.longitude, `is`(reminder.longitude))
+        assertThat(remindersList.data.location, `is`(reminder.location))
     }
 
 

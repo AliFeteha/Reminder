@@ -66,7 +66,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
         }
     }
 
-//    TODO: test the navigation of the fragments.
+//    Done: test the navigation of the fragments.
     @Test
     fun navigateToSaveReminderTest(){
     val scenario = launchFragmentInContainer<ReminderListFragment>(Bundle(), R.style.AppTheme)

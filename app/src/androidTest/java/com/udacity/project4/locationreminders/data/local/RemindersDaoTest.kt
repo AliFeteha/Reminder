@@ -61,6 +61,10 @@ class RemindersDaoTest {
         assertThat(loaded.longitude, `is`(reminder.longitude))
 
     }
+    @Test
+    fun deleteRemindersTest()= runBlockingTest {
+
+    }
 
 
 }

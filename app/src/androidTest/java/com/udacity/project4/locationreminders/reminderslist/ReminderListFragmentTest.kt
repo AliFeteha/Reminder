@@ -15,6 +15,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.udacity.project4.R
 import com.udacity.project4.locationreminders.data.ReminderDataSource
+import com.udacity.project4.locationreminders.savereminder.SaveReminderViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.*
 import org.junit.Before
@@ -45,6 +46,9 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
         val myModule = module {
             viewModel {
                 RemindersListViewModel(appContext, get() as ReminderDataSource)
+            }
+            single {
+                SaveReminderViewModel(appContext, get() as ReminderDataSource)
             }
         }
     }

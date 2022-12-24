@@ -47,5 +47,10 @@ class RemindersDaoTest {
         assertThat(remindersList.isEmpty(), `is`(false))
     }
 
+    @Test
+    fun getReminderByIdTest() = runBlockingTest {
+
+    }
+
 
 }

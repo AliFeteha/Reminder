@@ -28,5 +28,7 @@ class RemindersDaoTest {
 //    TODO: Add testing implementation to the RemindersDao.kt
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
+    private lateinit var database: RemindersDatabase
+
 
 }

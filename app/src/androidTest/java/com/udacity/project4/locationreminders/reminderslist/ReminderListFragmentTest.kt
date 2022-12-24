@@ -39,6 +39,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     @Before
     fun setup(){
         stopKoin()
+        appContext = getApplicationContext()
     }
 
 //    TODO: test the navigation of the fragments.

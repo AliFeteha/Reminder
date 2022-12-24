@@ -7,19 +7,25 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.udacity.project4.R
 import com.udacity.project4.locationreminders.data.ReminderDataSource
+import com.udacity.project4.locationreminders.data.dto.ReminderDTO
 import com.udacity.project4.locationreminders.data.local.LocalDB
 import com.udacity.project4.locationreminders.data.local.RemindersLocalRepository
 import com.udacity.project4.locationreminders.savereminder.SaveReminderViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -80,5 +86,11 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     )
     }
 //    TODO: test the displayed data on the UI.
-//    TODO: add testing for the error messages.
+    //    Done: add testing for the error messages.
+    @Test
+    fun errorShown() = runBlockingTest {
+        launchFragmentInContainer<ReminderListFragment>(Bundle(), R.style.AppTheme)
+        onView(withId(R.id.noDataTextView)).check(ViewAssertions.matches(isDisplayed()))
+    }
+
 }

@@ -29,6 +29,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
+import org.koin.test.get
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 
@@ -58,6 +59,7 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
 
         }
         startKoin { modules(listOf(myModule)) }
+        repository = get()
     }
 
 //    TODO: test the navigation of the fragments.

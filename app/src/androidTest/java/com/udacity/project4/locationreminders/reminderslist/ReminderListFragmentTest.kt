@@ -12,6 +12,7 @@ import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -86,6 +87,10 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     )
     }
 //    TODO: test the displayed data on the UI.
+   @Test
+   fun displayedDataOnUi()  = runBlockingTest{
+
+}
     //    Done: add testing for the error messages.
     @Test
     fun errorShown() = runBlockingTest {

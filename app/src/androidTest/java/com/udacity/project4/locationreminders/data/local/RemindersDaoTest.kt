@@ -39,4 +39,6 @@ class RemindersDaoTest {
             RemindersDatabase::class.java
         ).build()
     }
+    @After
+    fun closeDb() = database.close()
 }

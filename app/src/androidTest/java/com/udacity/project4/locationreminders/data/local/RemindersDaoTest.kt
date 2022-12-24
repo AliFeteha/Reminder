@@ -52,6 +52,14 @@ class RemindersDaoTest {
         val reminder = ReminderDTO("alex","restaurant","KFC",1.2,3.2)
         database.reminderDao().saveReminder(reminder)
         val loaded = database.reminderDao().getReminderById(reminder.id)
+        assertThat<ReminderDTO>(loaded as ReminderDTO, notNullValue())
+        assertThat(loaded.id, `is`(reminder.id))
+        assertThat(loaded.title, `is`(reminder.title))
+        assertThat(loaded.description, `is`(reminder.description))
+        assertThat(loaded.location, `is`(reminder.location))
+        assertThat(loaded.latitude, `is`(reminder.latitude))
+        assertThat(loaded.longitude, `is`(reminder.longitude))
+
     }
 
 

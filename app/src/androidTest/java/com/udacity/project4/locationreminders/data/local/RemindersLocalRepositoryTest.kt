@@ -51,6 +51,11 @@ class RemindersLocalRepositoryTest {
     fun cleanUp() {
         database.close()
     }
+    @Test
+    fun getRemindersTest() = runBlocking {
+
+    }
+
 
 
 }

@@ -64,6 +64,7 @@ class RemindersLocalRepositoryTest {
         remindersLocalRepository.saveReminder(reminder)
         val remindersList = remindersLocalRepository.getReminders() as? Result.Success
         assertThat(remindersList is Result.Success, `is`(true))
+        remindersList as Result.Success
     }
 
 

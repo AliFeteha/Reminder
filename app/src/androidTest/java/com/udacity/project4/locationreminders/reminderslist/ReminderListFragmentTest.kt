@@ -17,6 +17,7 @@ import com.udacity.project4.R
 import com.udacity.project4.locationreminders.data.ReminderDataSource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,6 +34,11 @@ class ReminderListFragmentTest: AutoCloseKoinTest() {
     val instantExecutor = InstantTaskExecutorRule()
     private lateinit var appContext: Application
     private lateinit var repository: ReminderDataSource
+
+    @Before
+    fun setup(){
+
+    }
 
 //    TODO: test the navigation of the fragments.
 //    TODO: test the displayed data on the UI.

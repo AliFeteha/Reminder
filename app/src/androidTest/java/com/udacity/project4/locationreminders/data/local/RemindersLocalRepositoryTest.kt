@@ -29,4 +29,7 @@ class RemindersLocalRepositoryTest {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
+    private lateinit var remindersLocalRepository: RemindersLocalRepository
+    private lateinit var database: RemindersDatabase
+
 }

@@ -59,6 +59,16 @@ class RemindersListViewModelTest {
     @Test
     fun errorHandling(){
         mainCoroutineRule.pauseDispatcher()
+        val reminder1 = ReminderDTO("alex","restaurant","mac",2.1,3.1)
+        val reminderList = mutableListOf(reminder1)
+        remindersRepository = FakeDataSource(reminderList)
+        remindersRepository.setReturnError(true)
+        viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
+        viewModel.loadReminders()
+        mainCoroutineRule.resumeDispatcher()
+        assertThat(viewModel.showSnackBar.getOrAwaitValue(),CoreMatchers.`is`("error to get Reminders")
+        )
+
     }
 
 

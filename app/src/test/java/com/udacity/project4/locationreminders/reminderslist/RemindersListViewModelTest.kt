@@ -56,6 +56,10 @@ class RemindersListViewModelTest {
         assertThat(viewModel.showSnackBar.getOrAwaitValue(),CoreMatchers.`is`("error to get Reminders")
         )
     }
+    @Test
+    fun errorHandling(){
+        mainCoroutineRule.pauseDispatcher()
+    }
 
 
 }

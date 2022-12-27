@@ -1,5 +1,6 @@
 package com.udacity.project4
 
+import android.app.Activity
 import android.app.Application
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
@@ -85,6 +86,13 @@ class RemindersActivityTest :
     }
 
 //    Done: add End to End testing to the app
+    private fun getActivity(activityScenario: ActivityScenario<RemindersActivity>): Activity {
+       lateinit var activity: Activity
+       activityScenario.onActivity {
+          activity = it
+       }
+       return activity
+    }
     @Test
     fun showToastedMessage() = runBlocking {
         val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)

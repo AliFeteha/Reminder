@@ -195,6 +195,8 @@ class SelectLocationFragment : BaseFragment() , OnMapReadyCallback{
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
             if (grantResults.size > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation()
+            }else{
+                _viewModel.showSnackBarInt.value = R.string.permission_denied_explanation
             }
         }
     }

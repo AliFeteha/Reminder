@@ -120,7 +120,10 @@ class RemindersActivityTest :
             .check(matches(isDisplayed()))
         activityScenario.close()
 
-
-
+    }
+    @Test
+    fun showAppBarrTitleError() = runBlocking {
+        val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
+        dataBindingIdlingResource.monitorActivity(activityScenario)
     }
 }

@@ -43,6 +43,8 @@ class SaveReminderViewModelTest {
         viewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
         viewModel.validateAndSaveReminder(reminder)
         assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
+        mainCoroutineRule.resumeDispatcher()
+        assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(false))
     }
     @Test
     fun returnError(){

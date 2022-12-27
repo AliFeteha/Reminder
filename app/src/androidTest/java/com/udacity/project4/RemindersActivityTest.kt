@@ -86,7 +86,7 @@ class RemindersActivityTest :
 //    Done: add End to End testing to the app
     @Test
     fun showToastedMessage() = runBlocking {
-
+        val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
 
     }
 }

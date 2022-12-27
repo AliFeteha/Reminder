@@ -50,6 +50,8 @@ class RemindersListViewModelTest {
         viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), remindersRepository)
         viewModel.loadReminders()
         assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
+        mainCoroutineRule.resumeDispatcher()
+        assertThat(viewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(false))
     }
 
     @Test

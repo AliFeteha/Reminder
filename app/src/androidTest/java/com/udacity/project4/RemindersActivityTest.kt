@@ -107,6 +107,8 @@ class RemindersActivityTest :
         onView(withId(R.id.addReminderFAB)).perform(click())
         onView(withId(R.id.reminderTitle)).perform(typeText("alex"))
         closeSoftKeyboard()
+        onView(withId(R.id.reminderDescription)).perform(typeText("restaurant"))
+        closeSoftKeyboard()
 
     }
 }

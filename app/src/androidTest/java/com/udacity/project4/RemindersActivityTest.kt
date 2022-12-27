@@ -127,5 +127,8 @@ class RemindersActivityTest :
         dataBindingIdlingResource.monitorActivity(activityScenario)
         onView(withId(R.id.addReminderFAB)).perform(click())
         onView(withId(R.id.saveReminder)).perform(click())
+        onView(withId(com.google.android.material.R.id.snackbar_text))
+            .check(matches(withText(R.string.err_enter_title)))
+        activityScenario.close()
     }
 }

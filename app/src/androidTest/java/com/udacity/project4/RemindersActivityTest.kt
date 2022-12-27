@@ -125,5 +125,7 @@ class RemindersActivityTest :
     fun showAppBarrTitleError() = runBlocking {
         val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
         dataBindingIdlingResource.monitorActivity(activityScenario)
+        onView(withId(R.id.addReminderFAB)).perform(click())
+        onView(withId(R.id.saveReminder)).perform(click())
     }
 }
